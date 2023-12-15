@@ -49,7 +49,8 @@ const LoggedInView = (props) => {
   );
 };
 
-function Header(props) {
+class Header extends React.Component {
+  render() {
     return (
       <nav
         className="navbar navbar-expand-md navbar-dark"
@@ -59,13 +60,14 @@ function Header(props) {
           <img alt="logo" src={logo} />
         </Link>
 
-        {props.currentUser ? (
-          <LoggedInView currentUser={props.currentUser} />
+        {this.props.currentUser ? (
+          <LoggedInView currentUser={this.props.currentUser} />
         ) : (
-          <LoggedOutView currentUser={props.currentUser} />
+          <LoggedOutView currentUser={this.props.currentUser} />
         )}
       </nav>
     );
+  }
 }
 
 export default Header;
